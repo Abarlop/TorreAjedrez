@@ -22,6 +22,14 @@ public class Posicion {
 	}
     
     
+    // constructor copia 
+    
+    public Posicion (Posicion e)
+    {
+    	if (e==null) {
+    		throw new NullPointerException("Error: No se admiten valores nulos");
+    	}
+    }
     
     
 
