@@ -34,6 +34,7 @@ public class Posicion {
     }
     
 
+
 	// Generamos los Getters y Setters
 	public int getFila() {
 		return fila;
@@ -81,6 +82,12 @@ public class Posicion {
 	}
 	
 	
+	// generamos el metodo Sting
+	@Override
+	public String toString() {
+		return "Posicion [fila=" + fila + ", columna=" + columna + "]";
+	}
+
 	
 	
 }
