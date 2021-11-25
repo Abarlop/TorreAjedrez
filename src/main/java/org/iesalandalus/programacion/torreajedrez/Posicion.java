@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.torreajedrez;
 
+import java.util.Objects;
+
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class Posicion {
@@ -31,7 +33,6 @@ public class Posicion {
     	}
     }
     
-    
 
 	// Generamos los Getters y Setters
 	public int getFila() {
@@ -56,7 +57,34 @@ public class Posicion {
 		}
 		this.columna = columna;
 	}
+
+	  
+    // generamos el metodo equals y hascode:
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(MAXIMO, MINIMO, columna, fila, minuscula);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Posicion other = (Posicion) obj;
+		return MAXIMO == other.MAXIMO && MINIMO == other.MINIMO && columna == other.columna && fila == other.fila
+				&& minuscula == other.minuscula;
+	}
+	
+	
+	
+	
 }
+
 	
 	
 	
