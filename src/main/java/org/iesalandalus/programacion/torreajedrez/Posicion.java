@@ -15,7 +15,15 @@ public class Posicion {
     private int MAXIMO=8;
     private int MINIMO=1;
 	
-
+    //generamos el constructor:
+    public Posicion (int fila, char columna) {
+		setFila(fila);
+		setColumna(columna);
+	}
+    
+    
+    
+    
 
 	// Generamos los Getters y Setters
 	public int getFila() {
