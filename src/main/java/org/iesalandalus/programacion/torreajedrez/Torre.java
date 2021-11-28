@@ -17,6 +17,9 @@ public class Torre {
 			return color;
 		}
 		public void setColor(Color color) {
+			if (color == null) {
+				throw new NullPointerException ("Error: No puede estar vacio el color"); // Preguntar a Andres como diferencia internamente la maquina o si simplemente asume el error (Plantear mejor la pregunta)
+			}
 			this.color = color;
 		}
 		public Posicion getPosicion() {
