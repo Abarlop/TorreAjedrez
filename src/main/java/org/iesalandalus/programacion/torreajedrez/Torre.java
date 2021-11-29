@@ -15,6 +15,17 @@ public class Torre {
 			setPosicion(new Posicion(8, 'h'));
 		}
 		
+		// crear constructor prar la clase que acepte como parametro el color
+		
+		public Torre (Color color) {
+			setColor(color);
+			if(color.equals(color.BLANCO)) {
+				setPosicion(new Posicion(1, 'h'));
+			} else {
+				setPosicion(new Posicion(8, 'h'));
+			}
+		}
+		
 		
 		
 		
