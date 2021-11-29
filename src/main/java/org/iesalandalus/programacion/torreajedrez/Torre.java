@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.torreajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Torre {
 
 		private Color color;
@@ -43,6 +45,94 @@ public class Torre {
 			}
 				
 		}
+		
+		
+		
+		// creacion de los metodos 
+		public void mover (Direccion direccion, int avance) throws IllegalArgumentException, OperationNotSupportedException{ // se pueden poner varios para no caer en error (no siendo necesario), si esto no se pone nos dara error las excepciones 
+			
+			
+			if(avance<=0) {
+				throw new IllegalArgumentException("Error: El numero ha de ser mayor que cero");
+			}else if (direccion==null) {
+				throw new NullPointerException("Error: La direccion no puede ser nula");
+			}
+				switch(direccion) { 
+				case DERECHA:
+					if (color==Color.NEGRO)
+					{
+						try {
+							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() -avance)));
+						} catch (IllegalArgumentException e) {
+							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
+						}
+					} else
+					{
+						try {
+							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() +avance)));
+						} catch (IllegalArgumentException e) {
+							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
+						}
+					}
+					break;
+				case IZQUIERDA:
+					if (color==Color.NEGRO)
+					{
+						try {
+							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() +avance)));
+						} catch (IllegalArgumentException e) {
+							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
+						}
+					} else
+					{
+						try {
+							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() -avance)));
+						} catch (IllegalArgumentException e) {
+							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
+						}
+					}
+					break;
+				case ARRIBA:
+					if (color==Color.NEGRO)
+					{
+						try {
+							setPosicion(new Posicion(posicion.getFila() -avance, posicion.getColumna()));
+						} catch (IllegalArgumentException e) {
+							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
+						}
+					} else
+					{
+						try {
+							setPosicion(new Posicion(posicion.getFila() +avance, posicion.getColumna()));
+						} catch (IllegalArgumentException e) {
+							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
+						}
+					}
+				break;
+				case ABAJO:
+					if (color==Color.NEGRO)
+					{
+						try {
+							setPosicion(new Posicion(posicion.getFila() +avance, posicion.getColumna()));
+						} catch (IllegalArgumentException e) {
+							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
+						}
+					} else
+					{
+						try {
+							setPosicion(new Posicion(posicion.getFila() -avance, posicion.getColumna()));
+						} catch (IllegalArgumentException e) {
+							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
+						}
+					}
+					break;
+				default:
+					throw new NullPointerException("Error: La dirección no puede ser nula");
+				}
+			
+		}
+		
+		
 		
 		
 		
