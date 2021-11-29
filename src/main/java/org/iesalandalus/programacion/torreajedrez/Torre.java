@@ -178,6 +178,13 @@ public class Torre {
 			return color == other.color && Objects.equals(posicion, other.posicion);
 		}
 		
+		//creamos el string
+
+		@Override
+		public String toString() {
+			return "Torre [color=" + color + ", posicion=" + posicion + "]";
+		}
+		
 		
 		
 	
