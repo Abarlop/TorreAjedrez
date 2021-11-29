@@ -49,10 +49,10 @@ public class Torre {
 		
 		
 		// creacion de los metodos 
-		public void mover (Direccion direccion, int avance) throws IllegalArgumentException, OperationNotSupportedException{ // se pueden poner varios para no caer en error (no siendo necesario), si esto no se pone nos dara error las excepciones 
+		public void mover (Direccion direccion, int movimiento) throws IllegalArgumentException, OperationNotSupportedException{ // se pueden poner varios para no caer en error (no siendo necesario), si esto no se pone nos dara error las excepciones 
 			
 			
-			if(avance<=0) {
+			if(movimiento<=0) {
 				throw new IllegalArgumentException("Error: El numero ha de ser mayor que cero");
 			}else if (direccion==null) {
 				throw new NullPointerException("Error: La direccion no puede ser nula");
@@ -62,14 +62,14 @@ public class Torre {
 					if (color==Color.NEGRO)
 					{
 						try {
-							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() -avance)));
+							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() -movimiento))); // si no pones el tipo de la columna da error!
 						} catch (IllegalArgumentException e) {
 							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
 						}
 					} else
 					{
 						try {
-							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() +avance)));
+							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() +movimiento)));
 						} catch (IllegalArgumentException e) {
 							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
 						}
@@ -79,14 +79,14 @@ public class Torre {
 					if (color==Color.NEGRO)
 					{
 						try {
-							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() +avance)));
+							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() +movimiento)));
 						} catch (IllegalArgumentException e) {
 							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
 						}
 					} else
 					{
 						try {
-							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() -avance)));
+							setPosicion(new Posicion(posicion.getFila(), (char)(posicion.getColumna() -movimiento)));
 						} catch (IllegalArgumentException e) {
 							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
 						}
@@ -96,14 +96,14 @@ public class Torre {
 					if (color==Color.NEGRO)
 					{
 						try {
-							setPosicion(new Posicion(posicion.getFila() -avance, posicion.getColumna()));
+							setPosicion(new Posicion(posicion.getFila() -movimiento, posicion.getColumna()));
 						} catch (IllegalArgumentException e) {
 							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
 						}
 					} else
 					{
 						try {
-							setPosicion(new Posicion(posicion.getFila() +avance, posicion.getColumna()));
+							setPosicion(new Posicion(posicion.getFila() +movimiento, posicion.getColumna()));
 						} catch (IllegalArgumentException e) {
 							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
 						}
@@ -113,14 +113,14 @@ public class Torre {
 					if (color==Color.NEGRO)
 					{
 						try {
-							setPosicion(new Posicion(posicion.getFila() +avance, posicion.getColumna()));
+							setPosicion(new Posicion(posicion.getFila() +movimiento, posicion.getColumna()));
 						} catch (IllegalArgumentException e) {
 							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
 						}
 					} else
 					{
 						try {
-							setPosicion(new Posicion(posicion.getFila() -avance, posicion.getColumna()));
+							setPosicion(new Posicion(posicion.getFila() -movimiento, posicion.getColumna()));
 						} catch (IllegalArgumentException e) {
 							throw new OperationNotSupportedException("Error: No te puedes salir del tablero");
 						}
@@ -131,6 +131,9 @@ public class Torre {
 				}
 			
 		}
+		
+		
+		//crear enroque,[ preguntar a Andres, si seria creando dos objetos y sobreponiendo o no la posicion el uno del otro o si han de moverse simplemente, o si se pueden amabos casos ]
 		
 		
 		
