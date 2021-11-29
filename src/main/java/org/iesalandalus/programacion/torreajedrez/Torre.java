@@ -8,6 +8,13 @@ public class Torre {
 		
 		
 		
+		// creamos el constructor de torre negra 
+		
+		public Torre() {
+			setColor(Color.NEGRO);
+			setPosicion(new Posicion(8, 'h'));
+		}
+		
 		
 		
 		

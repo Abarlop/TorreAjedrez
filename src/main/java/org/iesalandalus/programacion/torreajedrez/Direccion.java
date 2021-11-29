@@ -1,12 +1,12 @@
 package org.iesalandalus.programacion.torreajedrez;
 
-public class Direccion {
-		public enum direccion{
+
+		public enum Direccion{
 			
 			ARRIBA, ABAJO, IZQUIERDA, DERECHA, ENROQUE_CORTO, ENROQUE_LARGO
 		}
 
-	}
+	
 
 
 
