@@ -27,6 +27,23 @@ public class Torre {
 		}
 		
 		
+		//creamos constructor que tenga entrada de color y columna
+		
+		public Torre(Color color, char columna) {
+			setColor(color);
+			if(columna=='a'|| columna=='h')
+			{
+				if(color.equals(color.BLANCO)) {
+				setPosicion(new Posicion(1, 'h'));
+				} else {
+				setPosicion(new Posicion(8, 'h'));
+				}
+			}else {
+				throw new IllegalArgumentException("Error: Debe introducir una columna valida.");
+			}
+				
+		}
+		
 		
 		
 		// Creamos los Getter y Setter [Recuerda que no aparecera la opcion si no guardas primero el archivo]
